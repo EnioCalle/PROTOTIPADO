@@ -13,8 +13,7 @@ package XXXNoScope360HeadShot.loader
 		static private var loader:Loader;
 		static private var _onComplete:Function;
 		
-		static public function XXXLoader(url:String,on_complete:Function) 
-		{			
+		static public function load(url:String,on_complete:Function=null):void {
 			loader = new Loader();
 			_onComplete = on_complete;
 			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, onComplete);
@@ -25,16 +24,17 @@ package XXXNoScope360HeadShot.loader
 		static private function onComplete(e:Event):void 
 		{
 			loader.contentLoaderInfo.removeEventListener(Event.COMPLETE, onComplete);
-			if (_onComplete != null)
-			{
+			//Global.assets = e.target.applicationDomain;
+			if (_onComplete != null) {
 				_onComplete();
 			}
 		}
-		static public function getAsset(name:String):Class
-		{
-			loader.contentLoaderInfo.applicationDomain.getDefinition(name);
 		
+		static public function getAsset(name:String):Class {
+			var clip:Class = loader.contentLoaderInfo.applicationDomain.getDefinition(name) as Class;
+			return clip;
 		}
+		
 	}
 
 }

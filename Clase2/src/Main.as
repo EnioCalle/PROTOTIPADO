@@ -1,6 +1,5 @@
 package
 {
-	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import XXXNoScope360HeadShot.loader.XXXLoader;
@@ -11,6 +10,7 @@ package
 	 */
 	public class Main extends Sprite 
 	{
+		
 		public function Main() 
 		{
 			if (stage) init();
@@ -20,16 +20,14 @@ package
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			XXXLoader.getAsset("assets.swf", goGame);
-			
-			var loader:XXXLoader = new XXXLoader("assets.swf",startGame);
+			XXXLoader.load("assets.swf", goGame);
 		}
 		
 		private function goGame():void 
 		{
-			var game = new Global;
-			
-			//trace();
+			trace("creo game");
+			var game:Game = new Game();
+			addChild(game);
 		}
 		
 	}
