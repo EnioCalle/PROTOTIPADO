@@ -1,0 +1,5 @@
+RESPUESTA 1:
+loader.contentLoaderInfo.addEventListener(Event.COMPLETE,onComplete);
+RESPUESTA 2:
+Sprite: Es un objeto que contiene gráficos (y los puede mostrar), así mismo puede contener "hijos" (childs).
+MovieClip: Tal como el Sprite, también es un objeto que contiene gráficos, pero el MovieClip puede tener línea de tiempo.
